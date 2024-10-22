@@ -82,3 +82,5 @@ python sqlmap.py -u "http://localhost:3128/unsafe_home.php?username=1" --dbs
 ```sh
 python sqlmap.py -u "http://localhost:3128/unsafe_home.php?username=1" -D sqllab_users --tables
 ``` 
+<img width="1000" alt="Screenshot" src="https://github.com/hoangphung123/SECLAB1/blob/master/img/tables.png?raw=true"><br>
+- We have a nameplate as credentials
