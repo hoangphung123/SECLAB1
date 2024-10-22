@@ -67,4 +67,11 @@ cd sqlmap
 ```sh
 python sqlmap.py
 ``` 
+<img width="1000" alt="Screenshot" src="https://github.com/hoangphung123/SECLAB1/blob/master/img/SQLmap.png?raw=true"><br>
+
+Question 1: Use sqlmap to get information about all available databases Answer 1:
+- First we run the following command to find out the database name
+```sh
+python sqlmap.py -u "http://localhost:3128/unsafe_home.php?username=1" --dbs
+``` 
 
